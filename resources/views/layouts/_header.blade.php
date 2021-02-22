@@ -35,7 +35,6 @@
                         </a>
                     </div>
                 </li>
-
             @endguest
             </ul>
         </div>
