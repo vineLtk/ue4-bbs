@@ -6,17 +6,37 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-colapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- 导航左侧 -->
-            <ul>
+            <ul class="navbar-nav mr-auto">
             
             </ul>
 
             <!-- 导航右侧 -->
             <ul class="navbar-nav navbar-right">
+            @guest
                 <!-- 登录 -->
-                <li class="nav-item"><a href="">登录</a></li>
-                <li class="nav-item"><a href="">注册</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
+            @else
+                <li class="nav-item dropdown"> 
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="" class="img-responsive img-circle" width="30px" height="30px" alt=""> {{ Auth::user()->name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="">个人中心</a>
+                        <a class="dropdown-item" href="">编辑资料</a>
+                        <div class="dropdwon-divider"></div>
+                        <a class="dropdown-item" id="logout" href="">
+                            <form method="post" action="{{ route('logout') }}">
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn btn-block btn-danger" name="button">退出</button>
+                            </form>
+                        </a>
+                    </div>
+                </li>
+
+            @endguest
             </ul>
         </div>
     </div>
