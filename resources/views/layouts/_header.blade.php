@@ -21,11 +21,11 @@
             @else
                 <li class="nav-item dropdown"> 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="" class="img-responsive img-circle" width="30px" height="30px" alt=""> {{ Auth::user()->name }}
+                        <img src="{{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px" alt=""> {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">个人中心</a>
-                        <a class="dropdown-item" href="">编辑资料</a>
+                        <a class="dropdown-item" href="{{ route('users.show', Auth::id())}}">个人中心</a>
+                        <a class="dropdown-item" href="{{ route('users.edit', Auth::id())}}">编辑资料</a>
                         <div class="dropdwon-divider"></div>
                         <a class="dropdown-item" id="logout" href="">
                             <form method="post" action="{{ route('logout') }}">

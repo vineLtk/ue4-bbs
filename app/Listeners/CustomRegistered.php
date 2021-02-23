@@ -27,5 +27,6 @@ class CustomRegistered
     public function handle(Registered $event)
     {
         //
+        $event->user->update(['avatar'=>default_img('ue4-avatar')]);
     }
 }

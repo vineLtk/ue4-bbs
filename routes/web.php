@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', "PagesController@root")->name('root');
+
+/** auth start **/
 // 登录/登出
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -35,5 +38,8 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 // Auth::routes();
+/** auth end **/
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/users', 'UsersController', ['only'=>['show', 'edit', 'update']]);
+
+
