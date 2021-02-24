@@ -8,6 +8,10 @@ return [
             'between'=>'用户名必须介于 3 - 25 个字符之间。',
             'required'=>'用户名不能为空。'
         ],
+        'avatar'=>[
+            'dimensions'=>'图片分辨率需要大于208像素',
+            'mimes'=>'文件格式不正确'
+        ],
         'captcha'=>[
             'require'=>'请填写验证码',
             'captcha'=>'请输入正确的验证码'
