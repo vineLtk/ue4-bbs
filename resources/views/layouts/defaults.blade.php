@@ -11,6 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', (isset($title)?$title:''))-UE4小论坛</title>
+    <meta name="description" content="@yield('description', 'UE4爱好者社区')" />
 
     <!-- styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
