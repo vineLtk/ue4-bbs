@@ -10,11 +10,11 @@
     <!-- CSRF TOKEN -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', (isset($title)?$title:'-UE4小论坛'))</title>
+    <title>@yield('title', (isset($title)?$title:''))-UE4小论坛</title>
 
     <!-- styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+    @yield('styles')
 </head>
 
 <body>
@@ -35,6 +35,7 @@
 
     <!-- JS引入 -->
     <script src="{{ mix('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>
