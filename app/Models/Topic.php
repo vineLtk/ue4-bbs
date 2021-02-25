@@ -18,6 +18,10 @@ class Topic extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function replies(){
+        return $this->hasMany(Reply::class, 'topic_id', 'id')->where('reply_id', 0);
+    }
+
     public function scopeOfOrder($query, $order){
         switch ($order) {
             case 'recent':

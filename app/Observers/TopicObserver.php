@@ -21,6 +21,8 @@ class TopicObserver
 
     public function saving(Topic $topic)
     {
+        $topic->body = clean($topic->body, 'user_topic_body');
+
         $excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($topic->body)));
 
         $topic->excerpt = Str::limit($excerpt, 200);

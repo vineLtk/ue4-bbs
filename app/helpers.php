@@ -8,6 +8,7 @@ function route_class(){
 }
 
 function default_img($str = 'ue4小论坛', $size = '100'){
-    $hash = md5(strtolower(trim($str)));
-    return "http://www.gravatar.com/avatar/$hash?s=$size";
+    // $hash = md5(strtolower(trim($str)));
+    // return "http://www.gravatar.com/avatar/$hash?s=$size";
+    return config('app.url')."/image/default_avatar.png";
 }
