@@ -35,6 +35,12 @@ class TopicsController extends Controller
 	public function store(TopicRequest $request, Topic $topic)
 	{
 		$topic->fill($request->all());
+		//如果是发布公告，仅管理员和站长可发布
+		if($topic->category_id == 4){
+			if(!(Auth::user()->hasRole('Founder') || Auth::user()->hasRole('Maintainer'))){
+				return redirect()->back()->with('danger', '仅管理员和站长可以发布公告类的帖子')->withInput();
+			}
+		}
 		$topic->user_id = Auth::id();
 		$topic->save();
 		return redirect()->route('topics.show', $topic->id)->with('message', '帖子创建成功');

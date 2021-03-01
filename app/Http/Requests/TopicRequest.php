@@ -31,19 +31,17 @@ class TopicRequest extends Request
     public function messages()
     {
         return [
-            'title'=>[
-                'required'=>'标题必填',
-                'min'=> '标题至少5个字',
-                'max'=> '标题至多100个字',
-            ],
-            'category_id'=>[
-                'required'=>'分类必选',
-                'numeric'=>'未知分类参数'
-            ],
-            'body'=>[
-                'required'=>'内容必填',
-                'min'=>'帖子内容至少20个字符'
-            ]
+            
+            'title.required'=>'标题必填',
+            'title.min'=> '标题至少5个字',
+            'title.max'=> '标题至多100个字',
+
+            'category_id.required'=>'分类必选',
+            'category_id.numeric'=>'未知分类参数',
+
+            'body.required'=>'内容必填',
+            'body.min'=>'帖子内容至少20个字符',
+            
             // Validation messages
         ];
     }
