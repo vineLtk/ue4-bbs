@@ -24,6 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // 每日零时执行一次
+        $schedule->command('ue4bbs:sync-user-actived-at')->dailyAt('00:00');
         // $schedule->command('inspire')->hourly();
     }
 
