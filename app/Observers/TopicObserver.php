@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Topic;
 use Str;
+use DB;
 // creating, created, updating, updated, saving,
 // saved,  deleting, deleted, restoring, restored
 
@@ -27,5 +28,9 @@ class TopicObserver
 
         $topic->excerpt = Str::limit($excerpt, 200);
 
+    }
+
+    public function deleted(){
+        DB::table('replies')->where('topic_id', $topic->id)->delete();
     }
 }
