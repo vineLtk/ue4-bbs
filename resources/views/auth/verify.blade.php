@@ -1,5 +1,7 @@
 @extends('layouts.defaults')
 
+@section('title', '验证')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

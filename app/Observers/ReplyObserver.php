@@ -23,7 +23,7 @@ class ReplyObserver
             }
     
             //订阅邮件推送
-            if(true){
+            if(false){
                 $reply->topic->user->notify(new TopicRepliedMail($reply));
             }
         }
