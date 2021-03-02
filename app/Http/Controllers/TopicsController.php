@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Topic,Category};
+use App\Models\{Topic,Category,User};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
@@ -17,8 +17,10 @@ class TopicsController extends Controller
 
 	public function index(Request $request)
 	{
+		$user = new User();
+		$active_users = $user->getActiveUser();//获取活跃用户
 		$topics = Topic::with(['category', 'user'])->ofOrder($request->order)->paginate();
-		return view('topics.index', compact('topics'));
+		return view('topics.index', compact('topics', 'active_users'));
 	}
 
     public function show(Topic $topic)
