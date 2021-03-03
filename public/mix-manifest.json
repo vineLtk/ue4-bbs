@@ -5,5 +5,11 @@
     "/js/module.js": "/js/module.js?id=1f0206730b87684b7ad6",
     "/js/simditor.js": "/js/simditor.js?id=e19ffe3d664de3d4228a",
     "/js/uploader.js": "/js/uploader.js?id=0e7f04273d8e2a0a834c",
-    "/css/simditor.css": "/css/simditor.css?id=69eb7767d3b20549b33f"
+    "/css/simditor.css": "/css/simditor.css?id=69eb7767d3b20549b33f",
+    "/js/jquery-2.1.4.min.js": "/js/jquery-2.1.4.min.js?id=25cc04f0b2fb3edf6fe1",
+    "/css/cropper.min.css": "/css/cropper.min.css?id=b5d8e751bcd9f141c70a",
+    "/js/cropper.min.js": "/js/cropper.min.js?id=51d68031ebfcbbd99254",
+    "/css/sitelogo.css": "/css/sitelogo.css?id=bcfd1bda522e9a724993",
+    "/js/sitelogo.js": "/js/sitelogo.js?id=bdd22e53e5a803e2743f",
+    "/js/bootstrap.min.js": "/js/bootstrap.min.js?id=e7d9a06cf9053c51cd4a"
 }

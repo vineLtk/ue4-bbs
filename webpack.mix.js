@@ -14,4 +14,10 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css').version()
     .copyDirectory('resources/editor/js', 'public/js')
-    .copyDirectory('resources/editor/css', 'public/css');;
+    .copyDirectory('resources/editor/css', 'public/css')
+    .copyDirectory('resources/jquery', 'public/js')
+    .copyDirectory('resources/cropper/css', 'public/css')
+    .copyDirectory('resources/cropper/js', 'public/js')
+    .copyDirectory('resources/sitelogo/css', 'public/css')
+    .copyDirectory('resources/sitelogo/js', 'public/js')
+    .copyDirectory('resources/bootstrap/js', 'public/js');
