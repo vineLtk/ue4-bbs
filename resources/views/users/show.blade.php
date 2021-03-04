@@ -96,7 +96,7 @@
                               </div>
                               <div class="btn-group">
                                   <button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees" style="background-color: #eee">
-                                    <i class="fa fa-repeat"></i> 
+                                    <i class="fa fa-redo"></i> 
                                     向右旋转</button>
                               </div>
                           </div>
