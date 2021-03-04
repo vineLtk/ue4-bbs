@@ -9,7 +9,7 @@ class ImageUploadHandler{
 
     protected $allowed_ext=['png', 'jpg', 'jpeg', 'gif'];
 
-    public function save($file, $folder, $file_prefix, $max_width = false){
+    public function save($file, $folder, $file_prefix, $max_width = false, $need_cut = false, $cut_data=""){
         // 构建存储的文件夹规则，值如：uploads/images/avatars/201709/21/
         // 文件夹切割能让查找效率更高。
         $folder_name = "uploads/images/$folder/" . date("Ym/d", time());
@@ -29,6 +29,11 @@ class ImageUploadHandler{
         }
 
         $file->move($upload_path, $filename);
+
+        //对图片进行裁剪
+        if($need_cut && $extension!='gif' && $cut_data){
+            $this->cutPhoto($upload_path."/$filename", $cut_data);
+        }
 
         if($max_width && $extension!='gif'){
             $this->reduceSize($upload_path."/$filename", $max_width);
@@ -56,5 +61,25 @@ class ImageUploadHandler{
 
         // 对图片修改后进行保存
         $image->save();
+    }
+
+    /**
+     * 裁剪图片
+     */
+    public function cutPhoto($file_path, $cut_data){
+        $image = Image::make($file_path);
+
+        // 获取用户对文件进行处理的数据
+        $avatarInfo  = json_decode($cut_data);
+        $cropX  = floor($avatarInfo->x);
+        $cropY  = floor($avatarInfo->y);
+        $cropW  = floor($avatarInfo->width);
+        $cropH  = floor($avatarInfo->height);
+        $rotate = $avatarInfo->rotate;
+
+        $image->rotate(-$rotate)
+        ->crop($cropW, $cropH, $cropX, $cropY)
+        ->save();
+
     }
 }

@@ -12,8 +12,14 @@
 
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
     <div class="card ">
-        <div id="crop-avatar">
-          <div class="@can('update', $user) avatar-view @endcan"><img class="card-img-top" src="{{ $user->avatar }}"  alt="{{ $user->name }}"></div>
+        <div id="crop-avatar" style="position: relative;">
+  
+            <img class="card-img-top" src="{{ $user->avatar }}"  alt="{{ $user->name }}" >
+            @can('update', $user)
+            <div class="avatar-view" style="position: absolute;bottom:0; float:right;right:0;display:inline;margin-right:5px;">
+                <i class="fa fa-edit" data-src="{{ $user->avatar }}" style="color:#3490dc" alt="修改头像"></i>
+            </div>
+            @endcan
         </div>
         <div class="card-body">
             <h5><strong>个人简介</strong></h5>

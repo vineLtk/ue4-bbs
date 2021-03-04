@@ -49,6 +49,27 @@ class UsersController extends Controller
     }
 
     public function updateAvatar(User $user, Request $request, ImageUploadHandler $uploader){
-        dd($request->avatar_input);
+        $this->authorize('update', $user);
+
+        $data = [
+            'code'=>'501',
+            'message'=>'上传失败',
+            'success'=>false,
+            'file_path'=>'',
+        ];
+
+        // dd($request->avatar_input);
+        if($request->avatar_input){
+            $res = $uploader->save($request->avatar_input, 'avatar', $user->id, '400', true, $request->avatar_data);
+            if ($res) {
+                $user->update(['avatar'=>$res['path']]);
+                $data['code'] = 200;
+                $data['message'] = '上传成功';
+                $data['success'] = true;
+                $data['file_path'] = $res['path'];
+            }
+        }
+        
+        return $data;
     }
 }

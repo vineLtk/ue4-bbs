@@ -41,7 +41,7 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 /** auth end **/
 
 Route::resource('/users', 'UsersController', ['only'=>['show', 'edit', 'update']]);
-Route::put('/users/update_avatar/{id}', 'UsersController@updateAvatar')->name('users.update_avatar');
+Route::put('/users/update_avatar/{user}', 'UsersController@updateAvatar')->name('users.update_avatar');
 
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
