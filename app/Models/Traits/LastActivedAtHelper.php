@@ -5,9 +5,6 @@ namespace App\Models\Traits;
 use Illuminate\Support\Facades\Redis;
 use Carbon\Carbon;
 
-/**
- * 
- */
 trait LastActivedAtHelper
 {
     // 缓存相关
