@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Topic;
+use App\Models\{Topic, Category};
 use Str;
 use DB;
 // creating, created, updating, updated, saving,
@@ -13,6 +13,8 @@ class TopicObserver
     public function creating(Topic $topic)
     {
         //
+        $category = Category::find($topic->category_id);
+        $category->increment('topic_count', 1);
     }
 
     public function updating(Topic $topic)
@@ -30,7 +32,10 @@ class TopicObserver
 
     }
 
-    public function deleted(){
+    public function deleted(Topic $topic){
         DB::table('replies')->where('topic_id', $topic->id)->delete();
+        //
+        $category = Category::find($topic->category_id);
+        $category->decrement('topic_count', 1);
     }
 }
