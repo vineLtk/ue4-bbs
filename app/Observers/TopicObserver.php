@@ -14,7 +14,7 @@ class TopicObserver
     {
         //
         $category = Category::find($topic->category_id);
-        $category->increment('topic_count', 1);
+        $category->increment('post_count', 1);
     }
 
     public function updating(Topic $topic)
@@ -36,6 +36,9 @@ class TopicObserver
         DB::table('replies')->where('topic_id', $topic->id)->delete();
         //
         $category = Category::find($topic->category_id);
-        $category->decrement('topic_count', 1);
+        if($category->post_count >0){
+            $category->decrement('post_count', 1);
+        }
+        
     }
 }
