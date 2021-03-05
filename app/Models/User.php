@@ -8,12 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Traits\LastActivedAtHelper;
+use App\Models\Traits\ActiveUserHelper;
 use Auth;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use Traits\LastActivedAtHelper;
-    use Traits\ActiveUserHelper;
+    use LastActivedAtHelper, ActiveUserHelper;
 
     use HasRoles;
 
