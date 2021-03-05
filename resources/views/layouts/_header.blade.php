@@ -8,13 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- 导航左侧 -->
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item {{ active_class(if_route('topics.index')) }}"><a class="nav-link" href="{{ route('topics.index') }}">广场</a></li> -->
-                <li class="nav-item {{ active_class(if_route('topics.index') && if_route_param('category', 1)) }}"><a class="nav-link" href="{{ route('categories.show', 1) }}">分享</a></li>
-                <li class="nav-item {{ active_class(if_route('topics.index') && if_route_param('category', 2)) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
-                <li class="nav-item {{ active_class(if_route('topics.index') && if_route_param('category', 3)) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
-                <li class="nav-item {{ active_class(if_route('topics.index') && if_route_param('category', 4)) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
-            </ul>
+            @include('layouts._nav_list')
 
             <!-- 导航右侧 -->
             <ul class="navbar-nav navbar-right">

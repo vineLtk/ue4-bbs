@@ -14,4 +14,8 @@ class Category extends Model
     protected $fillable = [
         'name', 'description'
     ];
+
+    public function getNavCategories(){
+        return self::where(['is_nav'=>1])->get();
+    }
 }

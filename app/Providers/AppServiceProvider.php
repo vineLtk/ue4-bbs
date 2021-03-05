@@ -28,9 +28,12 @@ class AppServiceProvider extends ServiceProvider
 		\App\Models\Reply::observe(\App\Observers\ReplyObserver::class);
 		\App\Models\Topic::observe(\App\Observers\TopicObserver::class);
 
+        //公共变量
+        view()->composer([
+            'auth.*','users.*','topics.*'
+        ], \App\Http\Views\CategoryComposer::class);
         //
         Schema::defaultStringLength(191);
-
         \Illuminate\Pagination\Paginator::useBootstrap();
     }
 }

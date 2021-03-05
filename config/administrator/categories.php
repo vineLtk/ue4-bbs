@@ -37,6 +37,12 @@ return [
         'description' => [
             'title'    => '分类描述',
         ],
+        'des_key' => [
+            'title'    => '别名key',
+        ],
+        'is_nav' => [
+            'title'    => '是否导航栏分类',
+        ],
         'operation' => [
             'title'    => '管理',
             'sortable' => false,
@@ -51,6 +57,13 @@ return [
             'title' => '描述',
             'type'  => 'textarea',
         ],
+        'des_key' => [
+            'title'    => '别名key',
+        ],
+        'is_nav' => [
+            'title'    => '是否导航栏分类',
+            'type'     => 'bool'
+        ],
     ],
 
     'filters' => [
@@ -62,6 +75,13 @@ return [
         ],
         'description' => [
             'title' => '描述',
+        ],
+        'des_key' => [
+            'title'    => '别名key',
+        ],
+        'is_nav' => [
+            'title'    => '是否导航栏分类',
+            'type'     => 'bool'
         ],
     ],
 

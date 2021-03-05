@@ -45,7 +45,8 @@ Route::put('/users/update_avatar/{user}', 'UsersController@updateAvatar')->name(
 
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
-Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+Route::get('categories/{key}', 'CategoriesController@show')->name('categories.show');
+// Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
 Route::post('upload_image', 'UploadsController@uploadImage')->name('upload_image');
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
