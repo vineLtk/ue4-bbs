@@ -44,7 +44,7 @@ trait ActiveUserHelper
             return $user['score'];
         });
         
-        $active_users = array_reverse($active_users);//倒序
+        $active_users = array_reverse($active_users, true);//倒序
         
         $active_users = array_slice($active_users, 0, 9, true);//获取活跃前10
 
